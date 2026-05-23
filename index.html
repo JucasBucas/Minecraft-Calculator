@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>CraftCalc: Ultimate Minecraft Resource & Build Calculator</title>
+    <meta name="description" content="Calculate raw materials, compress resource stacks, and plan your gaming builds instantly. The ultimate block companion tool for players.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/svg+xml" href="https://static.wikia.nocookie.net/logopedia/images/7/7a/Minecraft_2013_launcher.svg/revision/latest/scale-to-width-down/250?cb=20240606114031">
+</head>
+<body>
+    <div class="calculator-grid">
+        <div class="lang-bar">
+            <button id="langEnBtn" class="lang-btn active">English</button>
+            <button id="langRuBtn" class="lang-btn">Русский</button>
+        </div>
+
+        <div class="dual-panel">
+            <div class="panel compressor-panel">
+                <h2 id="compressorTitle">Block Compressor</h2>
+                <div id="compressorSub" class="sub">Convert blocks ↔ ingots (9:1 ratio)</div>
+                <div class="input-group">
+                    <label id="materialLabel">Material type</label>
+                    <select id="compressorMaterial">
+                        <option value="Iron Ingot">Iron</option>
+                        <option value="Gold Ingot">Gold</option>
+                        <option value="Diamond">Diamond</option>
+                        <option value="Emerald">Emerald</option>
+                        <option value="Coal">Coal</option>
+                        <option value="Redstone">Redstone</option>
+                        <option value="Lapis Lazuli">Lapis</option>
+                        <option value="Copper Ingot">Copper</option>
+                        <option value="Netherite Ingot">Netherite</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label id="quantityUnitLabel">Quantity & unit</label>
+                    <div class="row-flex">
+                        <input type="number" id="compressorAmount" value="64" min="0" step="1">
+                        <select id="compressorUnit">
+                            <option value="block">Blocks</option>
+                            <option value="ingot">Ingots / Units</option>
+                        </select>
+                        <button id="compressBtn" class="primary-btn">Convert</button>
+                    </div>
+                </div>
+                <div class="result-card">
+                    <div id="compressorResultLabel" class="result-label">RESULT</div>
+                    <div class="result-value" id="compressorDisplay">—</div>
+                </div>
+            </div>
+
+            <div class="panel build-panel">
+                <h2 id="buildTitle">Build Material Calculator</h2>
+                <div id="buildSub" class="sub">Add components → total raw materials</div>
+                
+                <div id="buildItemsContainer"></div>
+                <div style="margin: 12px 0; display: flex; flex-wrap: wrap; gap: 8px;">
+                    <button id="addBuildItemBtn" class="success-btn">+ Add Component</button>
+                    <button id="calculateBuildBtn" style="background:#f59e0b;">Calculate Total</button>
+                    <button id="resetBuildBtn" style="background:#64748b;">Reset List</button>
+                </div>
+                
+                <div class="result-card">
+                    <div id="buildResultLabel" class="result-label">REQUIRED RAW MATERIALS</div>
+                    <div id="buildMaterialOutput" style="max-height: 280px; overflow-y: auto;">
+                        <div style="color: #4a5568; text-align:center;">Click "Calculate Total" to see summary</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="globalFooter" class="footer-note">Block = 9 raw units | No typing needed — just select and enter numbers</div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
